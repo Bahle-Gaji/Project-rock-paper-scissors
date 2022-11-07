@@ -53,4 +53,14 @@ function getPlayerChoice(){
 }
 
 
+function game(){
+    for(let i = 0; i < 5; i++){
+        let playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        console.log(singleRound(playerSelection, computerSelection));
+        return 'Game Over'
+    }
+}
+
+// console.log(game())
 
