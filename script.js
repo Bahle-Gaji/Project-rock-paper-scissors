@@ -58,9 +58,9 @@ function game(){
         let playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(singleRound(playerSelection, computerSelection));
-        return 'Game Over'
     }
+    return 'Game Over'
 }
 
-// console.log(game())
+console.log(game())
 
