@@ -1,16 +1,18 @@
 // Computer's choice of weapon 
+const options = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice(){
-    const options = ['rock', 'paper', 'scissors'];
 
-    let choice = options[Math.floor(Math.random() * 3)]
+    let choice = options[Math.floor(Math.random() * 3)];
 
     return choice;
 }
 
-getComputerChoice();
+
 
 function singleRound(playerSelection, computerSelection){
+
+
     if(playerSelection == computerSelection){
 
         return `It's a tie! Both chose ${playerSelection}`;
@@ -30,7 +32,25 @@ function singleRound(playerSelection, computerSelection){
 
 }
 
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-// console.log(singleRound(playerSelection, computerSelection));
+// checking if playerSelection is a valid choice
+function getPlayerChoice(){
+    let isValidChoice = false;
+        
+    while(isValidChoice == false){
+        const choice = prompt("Choose your weapon");
+
+        if(choice == null){
+            continue;
+        }
+
+        const choiceInLower = choice.toLowerCase();
+        if(options.includes(choiceInLower)){
+            isValidChoice = true;
+            return choiceInLower;
+        }
+
+    }
+}
+
+
 
