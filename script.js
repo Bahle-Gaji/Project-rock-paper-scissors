@@ -24,13 +24,11 @@ function getPlayerChoice(){
             isValidChoice = true;
             return choiceInLower;
         }
-
     }
 }
 
 
 function singleRound(playerSelection, computerSelection){
-
 
     if(playerSelection == computerSelection){
 
@@ -75,6 +73,7 @@ function game(){
         console.log(result);
     }
     
+    // Win or lose message
     if(playerScore > computerScore){
         console.log(`You win the game. Player: ${playerScore}; Computer: ${computerScore}`);
     }
