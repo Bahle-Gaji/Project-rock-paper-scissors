@@ -83,3 +83,7 @@ function game(){
 
     return 'Game Over'
 }
+
+function pressButton(){
+    console.log(game())
+}
