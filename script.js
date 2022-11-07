@@ -1,6 +1,6 @@
-// Computer's choice of weapon 
 const options = ['rock', 'paper', 'scissors'];
 
+// Computer's choice of weapon 
 function getComputerChoice(){
 
     let choice = options[Math.floor(Math.random() * 3)];
@@ -8,6 +8,25 @@ function getComputerChoice(){
     return choice;
 }
 
+// checking if playerSelection is a valid choice
+function getPlayerChoice(){
+    let isValidChoice = false;
+        
+    while(isValidChoice == false){
+        const choice = prompt("Choose your weapon");
+
+        if(choice == null){
+            continue;
+        }
+
+        const choiceInLower = choice.toLowerCase();
+        if(options.includes(choiceInLower)){
+            isValidChoice = true;
+            return choiceInLower;
+        }
+
+    }
+}
 
 
 function singleRound(playerSelection, computerSelection){
@@ -32,32 +51,13 @@ function singleRound(playerSelection, computerSelection){
 
 }
 
-// checking if playerSelection is a valid choice
-function getPlayerChoice(){
-    let isValidChoice = false;
-        
-    while(isValidChoice == false){
-        const choice = prompt("Choose your weapon");
-
-        if(choice == null){
-            continue;
-        }
-
-        const choiceInLower = choice.toLowerCase();
-        if(options.includes(choiceInLower)){
-            isValidChoice = true;
-            return choiceInLower;
-        }
-
-    }
-}
-
 
 function game(){
     for(let i = 0; i < 5; i++){
         let playerSelection = getPlayerChoice();
         const computerSelection = getComputerChoice();
         console.log(singleRound(playerSelection, computerSelection));
+
     }
     return 'Game Over'
 }
