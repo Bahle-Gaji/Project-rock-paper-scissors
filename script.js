@@ -52,15 +52,35 @@ function singleRound(playerSelection, computerSelection){
 }
 
 
+// Five round game
 function game(){
-    for(let i = 0; i < 5; i++){
-        let playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(singleRound(playerSelection, computerSelection));
 
+    //Initialize scores for both player and computer
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for(let i = 0; i < 5; i++){
+
+        const playerSelection = getPlayerChoice();
+        const computerSelection = getComputerChoice();
+        let result = singleRound(playerSelection, computerSelection)
+        
+        if(result == `You win! ${playerSelection} beats ${computerSelection}`){
+            playerScore++;
+        }
+        else if(result == `You lose! ${computerSelection} beats ${playerSelection}`){
+            computerScore++;
+        }
+        
+        console.log(result);
     }
+    
+    if(playerScore > computerScore){
+        console.log(`You win the game. Player: ${playerScore}; Computer: ${computerScore}`);
+    }
+    else{
+        console.log(`You lose the game. Player: ${playerScore}; Computer: ${computerScore}`);
+    }
+
     return 'Game Over'
 }
-
-console.log(game())
-
